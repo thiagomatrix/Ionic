@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Sessão</title>
+</head>
+<body>
+
+    <div id="login"></div>
+
+    <script>
+    
+    var user = (sessionStorage.getItem('user'));
+    var pws = (sessionStorage.getItem('pws'));
+
+    if(user == null || pws == null){window.location.assign('/')}
+
+    sessao = JSON.stringify({'email':user,'senha':pws});
+    
+    //JSON.stringify(sessao);
+     
+    sessao = JSON.parse(sessao);
+
+    var c = JSON.parse(sessionStorage.getItem('chave'));
+
+    //console.log(sessao['email']);
+
+    console.info(sessao);
+ 
+    console.log(c);
+    
+    document.getElementById('login').innerHTML = 'Bem-Vindo: ' + (localStorage.getItem['usuario']);
+
+    //sessionStorage.removeItem('chave');   //Remove a sessão 
+    
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Local</title>
+    
+</head>
+<body>
+
+    <form action="index.html" method="post">
+    <div id="login"></div>
+    <button type="submit" onclick="sair()">Sair</button>
+    </form>
+
+    <script>
+
+    function sair(){
+
+  
+    localStorage.removeItem('pws'); 
+    sessaoStorage.setItem('user'); 
+    localStorage.removeItem('user'); 
+
+    }
+    
+    var user = (localStorage.getItem('user'));
+    var pws = (localStorage.getItem('pws'));
+    var tempo = (localStorage.getItem('time'));
+
+    if(user == null || pws == null){window.location.assign('./index.html')}
+
+    local = JSON.stringify({'email':user,'senha':pws, 'time':tempo});
+    
+    //JSON.stringify(sessao);
+     
+    local = JSON.parse(local);
+
+    logado = localStorage.getItem('usuario');
+
+    //console.log(sessao['email']);
+
+    document.getElementById('login').innerHTML = 'Bem-Vindo: ' + logado;
+
+    console.info(local);
+    
+    if(logado == ''){
+        window.location.assign('./index.html')
+    }
+    
+ 
+
+
+    
+    </script>
+
+</body>
+
+</html>
